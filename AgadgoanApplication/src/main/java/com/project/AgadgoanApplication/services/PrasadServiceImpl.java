@@ -55,4 +55,11 @@ public class PrasadServiceImpl implements PrasadService {
     public List<PrasadBooking> getBookingsByDevotee(Devotee devotee) {
         return repo.findByDevotee(devotee);
     }
+
+	@Override
+	public void deleteBookingById(int id) {
+		if (repo.existsById(id)) {
+            repo.deleteById(id);
+        }
+	}
 }

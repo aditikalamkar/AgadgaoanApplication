@@ -56,4 +56,15 @@ public class DarshanServiceImpl implements DarshanService {
     public List<DarshanBooking> getBookingsByDevotee(Devotee devotee) {
         return repo.findByDevotee(devotee);
     }
+
+	@Override
+	public void deleteBookingById(int id) {
+		if (repo.existsById(id)) {
+            repo.deleteById(id);
+        }
+		
+	}
+    
+    
+
 }

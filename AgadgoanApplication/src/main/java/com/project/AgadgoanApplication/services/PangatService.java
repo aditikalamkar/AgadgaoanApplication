@@ -12,5 +12,7 @@ public interface PangatService {
     PangatBooking updateBookingByDevoteeName(String name, PangatBooking booking); // changed method name
     void deleteBookingByDevoteeName(String name); // changed method name
     Map<String, Object> getSlotAvailability(String date, String timeSlot);
-    List<PangatBooking> getBookingsByDevotee(Devotee devotee); // changed from id
+    List<PangatBooking> getBookingsByDevotee(Devotee devotee); 
+    void deleteBookingById(int id);
+
 }

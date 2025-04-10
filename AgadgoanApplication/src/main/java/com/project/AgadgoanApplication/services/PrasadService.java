@@ -11,5 +11,7 @@ public interface PrasadService {
     PrasadBooking updateBookingByDevoteeName(String name, PrasadBooking booking); // changed
     void deleteBookingByDevoteeName(String name); // changed
     int getTotalBookedSeats(String date, String timeSlot);
-    List<PrasadBooking> getBookingsByDevotee(Devotee devotee); // changed from ID
+    List<PrasadBooking> getBookingsByDevotee(Devotee devotee); 
+    void deleteBookingById(int id);
+
 }

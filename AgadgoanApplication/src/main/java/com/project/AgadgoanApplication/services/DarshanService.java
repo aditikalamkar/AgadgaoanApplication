@@ -11,5 +11,9 @@ public interface DarshanService {
     DarshanBooking updateBookingByDevoteeName(String name, DarshanBooking booking);
     void deleteBookingByDevoteeName(String name);
     int getTotalBookedSeats(String date, String timeSlot);
-    List<DarshanBooking> getBookingsByDevotee(Devotee devotee); // ✅ Fixed to use Devotee object
+    List<DarshanBooking> getBookingsByDevotee(Devotee devotee);
+    void deleteBookingById(int id);
+
+    
+    
 }

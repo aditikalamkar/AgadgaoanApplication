@@ -96,4 +96,18 @@ public class PangatBookingController {
         List<PangatBooking> bookings = service.getBookingsByDevotee(currentUser);
         return ResponseEntity.ok(bookings);
     }
+    
+    @DeleteMapping("/delete/by-id/{id}")
+    public ResponseEntity<?> deleteById(@PathVariable int id, HttpSession session) {
+        Devotee currentUser = (Devotee) session.getAttribute("user");
+
+        if (currentUser == null) {
+            return ResponseEntity.status(401).body("Unauthorized: Please login to delete booking.");
+        }
+
+        service.deleteBookingById(id);
+        return ResponseEntity.ok("Booking deleted successfully with ID: " + id);
+    }
+
+
 }

@@ -65,4 +65,15 @@ public class PangatServiceImpl implements PangatService {
     public List<PangatBooking> getBookingsByDevotee(Devotee devotee) {
         return repo.findByDevotee(devotee);
     }
+    
+   
+
+	@Override
+	public void deleteBookingById(int id) {
+		if (repo.existsById(id)) {
+            repo.deleteById(id);
+        }
+		
+	}
+
 }
