@@ -98,19 +98,15 @@ public class DarshanBookingController {
     }
     
     @DeleteMapping("/delete/by-id/{id}")
-    public ResponseEntity<?> deleteById(@PathVariable Long id, HttpSession session) {
+    public ResponseEntity<?> deleteById(@PathVariable int id, HttpSession session) {
         Devotee currentUser = (Devotee) session.getAttribute("user");
 
         if (currentUser == null) {
             return ResponseEntity.status(401).body("Unauthorized: Please login to delete booking.");
         }
 
-        boolean deleted = service.deleteBookingById(id);
-        if (deleted) {
-            return ResponseEntity.ok("Booking deleted successfully.");
-        } else {
-            return ResponseEntity.status(404).body("Booking not found.");
-        }
+        service.deleteBookingById(id);
+        return ResponseEntity.ok("Booking deleted successfully with ID: " + id);
     }
 
 }
